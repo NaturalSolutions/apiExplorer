@@ -53,6 +53,7 @@ var View = Marionette.LayoutView.extend({
 
       model = WeekData.getNewInstance();
       this.collection.add(model);
+      
 
     },
 
