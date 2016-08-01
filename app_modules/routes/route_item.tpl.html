@@ -1,0 +1,126 @@
+<div class="col-sm-7">
+  <h2><%= data.title %></h2>
+  <h3>
+    <span class="label verb-<%= data.verb.toLowerCase() %>"><%= data.verb %></span>
+    <span class="url"><%= data.url %></span>
+  </h3>
+  <p><i><%= data.description %></i></p>
+
+  <% if ( data.requestHeaders && data.requestHeaders.length ) { %>
+  <div><h4>Request headers</h4>
+    <ul>
+      <% _.forEach(data.requestHeaders, function(resp, i) { %>
+      <li>
+        <span><%= resp %></span>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+  <% } %>
+
+  <% if ( data.requestParams && !_.isEmpty(data.requestParams) ) { %>
+  <div><h4>Request optional parameters</h4>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% _.forEach(data.requestParams, function(value, name) { %>
+        <tr>
+          <td><%= name %></td>
+          <td><%= value %></td>
+        </tr>
+      <% }); %>
+      </tbody>
+    </table>
+  </div>
+  <% } %>
+
+  <% if ( data.requestBody && !_.isEmpty(data.requestBody) ) { %>
+  <div><h4>Request body</h4>
+    <pre><%= JSON.stringify(data.requestBody, null, 4) %></pre>
+  </div>
+  <% } %>
+
+  <% if ( data.responseHeaders && data.responseHeaders.length ) { %>
+  <div><h4>Response headers</h4>
+    <ul>
+      <% _.forEach(data.responseHeaders, function(resp, i) { %>
+      <li>
+        <span><%= resp %></span>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+  <% } %>
+
+  <% if ( data.responseStatus && data.responseStatus.length ) { %>
+  <div><h4>Response status</h4>
+    <ul>
+      <% _.forEach(data.responseStatus, function(resp, i) { %>
+      <li>
+          <span><%= resp %></span>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+  <% } %>
+
+  <% if ( data.responseBody ) { %>
+  <div><h4>Response body (status 200)</h4>
+    <pre><%= JSON.stringify(data.responseBody, null, 4) %></pre>
+    <!--<textarea class="form-control" disabled name="" id="" cols="30" rows="10"><%= JSON.stringify(data.responseBody, null, 4) %></textarea>-->
+  </div>
+  <% } %>
+
+  <p><i><%= data.comment %></i></p>
+
+</div>
+<div class="col-sm-5">
+  <h3>Try it out !</h3>
+  <form class="js-form-send">
+
+    <% if ( data.presets && data.presets.length ) { %>
+    <div class="form-group">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Preset
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+        <% _.forEach(data.presets, function(preset, i) { %>
+          <li><a class="js-preset" data-index="<%= i %>"><%= preset.label || '#'+(i+1) %></a></li>
+        <% }); %>
+        </ul>
+      </div>
+    </div>
+    <% } %>
+
+    <div class="form-group">
+      <label for="query">Query</label>
+      <input type="text" class="js-query form-control" value="<%= data.url %>">
+    </div>
+
+    <% if ( data.requestBody && !_.isEmpty(data.requestBody) ) { %>
+    <div class="form-group">
+      <label for="request-body">Request body </label>
+      <textarea class="js-request-body form-control" name="request-body" id="" cols="30" rows="10"></textarea>
+    </div>
+    <% } %>
+
+    <button type="submit" class="btn btn-success btn-block">Send <span class="loader material-icons pos-abs text-center form-loader">filter_tilt_shift</span></button>
+
+    <div class="response-group">
+      <h3>Response</h3>
+      <h4>Status: <span class="js-response-status"></span></h4>
+      <h4>Body</h4>
+      <textarea class="js-response-body response" name="" id="" cols="30" rows="10" readonly="readonly"></textarea>
+    </div>
+
+  </form>
+</div>
+
+</div>
