@@ -7,14 +7,14 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'weekData',
-    verb: 'GET',
-    url: '/weekData',
+    title: 'Renvoie l'historique d'un topic',
+    verb: 'POST',
+    url: '/topicHistory',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-
+      "id":"int"
     },
     responseHeaders: [
       ''
@@ -31,7 +31,7 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: 'Default',
+        label: '',
         query: '',
       },
     ]

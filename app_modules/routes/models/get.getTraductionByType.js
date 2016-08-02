@@ -7,14 +7,17 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'weekData',
-    verb: 'GET',
-    url: '/weekData',
+    title: 'Renvoie la traduction d\'un topic pour un langue donnée',
+    verb: 'POST',
+    url: '/getTraductionByType',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-
+      "parentId":"int",
+      "value":"string",
+      "typeField":"string",
+      "lng":"string"
     },
     responseHeaders: [
       ''
@@ -31,7 +34,7 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: 'Default',
+        label: '',
         query: '',
       },
     ]

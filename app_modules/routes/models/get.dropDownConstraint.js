@@ -7,14 +7,16 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'weekData',
-    verb: 'GET',
-    url: '/weekData',
+    title: 'Booleen de validation de drag n drop',
+    verb: 'POST',
+    url: '/dropDownConstraint',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-
+      "movedTopicId":"int",
+      "destTopicId":"int",
+      "order":"string"
     },
     responseHeaders: [
       ''
@@ -31,7 +33,7 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: 'Default',
+        label: '',
         query: '',
       },
     ]

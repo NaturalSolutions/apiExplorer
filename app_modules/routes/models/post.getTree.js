@@ -7,14 +7,20 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'weekData',
+    title: 'Générateur d\'arbre',
     verb: 'GET',
-    url: '/weekData',
+    url: '/getTree',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-
+      "startNode":"int[]",
+      "language":"string",
+      "deprecated":"boolean",
+      "justLeafs":"boolean",
+      "profMin":"int",
+      "profMax":"int",
+      "notDisplayOutOfMax":"boolean"
     },
     responseHeaders: [
       ''
@@ -31,7 +37,7 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: 'Default',
+        label: '',
         query: '',
       },
     ]

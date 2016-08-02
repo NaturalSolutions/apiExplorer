@@ -7,14 +7,15 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'weekData',
+    title: 'Valide un nom pour la creation (doublon)',
     verb: 'GET',
-    url: '/weekData',
+    url: '/validateName',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-
+      "name":"string",
+      "branchId":"int"
     },
     responseHeaders: [
       ''
@@ -31,7 +32,7 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: 'Default',
+        label: '',
         query: '',
       },
     ]

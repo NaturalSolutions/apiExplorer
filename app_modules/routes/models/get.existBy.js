@@ -7,14 +7,16 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'weekData',
-    verb: 'GET',
-    url: '/weekData',
+    title: 'Booleen de validation d'existence d'un topic',
+    verb: 'POST',
+    url: '/existBy',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-
+      "typeField":"string",
+      "value":"string",
+      "lng":"string"
     },
     responseHeaders: [
       ''
@@ -31,7 +33,7 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: 'Default',
+        label: '',
         query: '',
       },
     ]

@@ -7,14 +7,15 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'weekData',
+    title: 'Générateur d\'arbre',
     verb: 'GET',
-    url: '/weekData',
+    url: '/fastInitForCompleteTree',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-
+      "StartNodeID":"int[]",
+      "lng":"string",
     },
     responseHeaders: [
       ''
@@ -31,8 +32,8 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: 'Default',
-        query: '',
+        label: 'Vetos tree',
+        query: '/fastInitForCompleteTree?StartNodeID=167920&lng=fr',
       },
     ]
   },

@@ -7,14 +7,16 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'weekData',
-    verb: 'GET',
-    url: '/weekData',
+    title: 'Insert un fichier en base sous forme de blob',
+    verb: 'POST',
+    url: '/validateName',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-
+      "form-data":{
+        "file":"stream"
+      }
     },
     responseHeaders: [
       ''
@@ -31,7 +33,7 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: 'Default',
+        label: '',
         query: '',
       },
     ]

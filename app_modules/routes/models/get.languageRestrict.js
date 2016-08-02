@@ -7,14 +7,15 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'weekData',
-    verb: 'GET',
-    url: '/weekData',
+    title: 'Renvoie les langages disponible pour une édition',
+    verb: 'POST',
+    url: '/languageRestrict',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-
+      "id":"int",
+      "action":"string nullable"
     },
     responseHeaders: [
       ''
@@ -31,7 +32,7 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: 'Default',
+        label: '',
         query: '',
       },
     ]
