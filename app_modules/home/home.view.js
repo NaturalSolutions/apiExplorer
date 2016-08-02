@@ -7,7 +7,6 @@ var Main = require('../main/main.view');
 var MenuItemView = require('../routes/menu_item.view');
 var RouteItemView = require('../routes/route_item.view');
 
-var WeekData = require('../routes/models/get.weekData');
 
 var View = Marionette.LayoutView.extend({
     template: require('./home.tpl.html'),
@@ -25,9 +24,12 @@ var View = Marionette.LayoutView.extend({
     },
 
     initialize: function() {
+      window.config = {};
       this.initColl();
       this.initRoutes();
       this.initMenu();
+
+
     },
 
     onBtnLoginClick: function() {
@@ -48,12 +50,15 @@ var View = Marionette.LayoutView.extend({
     },
 
     initColl: function() {
-      var model;
-      this.collection = new Backbone.Collection();
+      window.config.currentProject = 'get.weekData';
 
-      model = WeekData.getNewInstance();
-      this.collection.add(model);
-      
+      this.collection = new Backbone.Collection();
+      var models = require('../routes/models/**/*.js', {mode: 'list'});
+      console.log(models);
+      for (var i = models.length - 1; i >= 0; i--) {
+        console.log(models[i]);
+        this.collection.add(models[i].module.getNewInstance());
+      }
 
     },
 

@@ -1,0 +1,50 @@
+'use strict';
+
+var Backbone = require('backbone');
+
+var Model = Backbone.Model.extend({
+  urlRoot: 'http://',
+  schema: {
+  },
+  defaults: {
+    title: 'OtherRoute',
+    verb: 'GET',
+    url: '/weekData',
+    description: 'return',
+    isCollection: true,
+    requestBody: {},
+    requestParams: {
+      
+    },
+    responseHeaders: [
+      ''
+    ],
+    responseStatus: [
+      '200: Successful HTTP requests with data and empty data (e.g. request with filter)',
+      '400: Bad request (e.g. malformed request syntax)',
+      '401: Unauthorized (no credentials in request header)',
+      '403: Forbidden (e.g. the user is not allowed)'
+    ],
+    responseBody: [{
+
+    }],
+    comment: '',
+    presets: [
+      {
+        label: 'Default',
+        query: '',
+      },
+    ]
+  },
+
+  initialize: function() {
+  },
+
+});
+
+module.exports = {
+    getNewInstance: function() {
+        console.log(Model);
+        return new Model;
+    }
+};

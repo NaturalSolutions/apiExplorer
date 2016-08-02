@@ -125,6 +125,7 @@ module.exports = function(grunt) {
             },
             options: {
                 transform: [
+                    ['require-globify'],
                     ['node-underscorify', {
                         templateSettings: {variable: 'data'},
                         requires: [

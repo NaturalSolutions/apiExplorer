@@ -9,13 +9,15 @@ var View = Marionette.LayoutView.extend({
     className: 'inner clearfix',
 
     events: {
-        'click .btn_back': 'onBackClick'
+        'click .btn_back': 'onBackClick',
+        'change #apiBaseURL': 'changeBaseApi'
     },
     // !!! A trigger selector disable an event selector
     triggers: {
         //'click .btn_back': 'btn:back:click',
         'click .btn_menu': 'btn:menu:click'
     },
+
     btns: {
         menu: {
             icon: 'menu'
@@ -23,6 +25,10 @@ var View = Marionette.LayoutView.extend({
         back: {
             icon: 'arrow_back'
         }
+    },
+
+    changeBaseApi: function() {
+        window.apiBaseURL = this.$el.find('#apiBaseURL').val();
     },
 
     serializeData: function() {
@@ -50,7 +56,7 @@ var View = Marionette.LayoutView.extend({
             }
         });
 
-        data.apiBaseURL = config.apiBaseURL;
+        data.apiBaseURL = window.apiBaseURL;
 
         return data;
     },
