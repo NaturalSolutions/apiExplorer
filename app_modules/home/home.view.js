@@ -65,7 +65,7 @@ var View = Marionette.LayoutView.extend({
               break;
           case 'ecoReleveData':
               models = require('../routes/models/ecoReleveData/**/*.js', {mode: 'list'});
-              window.config.apiUrl = 'erd';
+              window.config.apiUrl = 'ecoReleve-Core';
               break;
           case 'eCollection':
               models = require('../routes/models/eCollection/**/*.js', {mode: 'list'});
