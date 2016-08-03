@@ -7,10 +7,10 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: '',
+    title: 'search station',
     verb: 'GET',
     url: '/stations/',
-    description: 'return',
+    description: 'return station list with total according query from criteria ',
     isCollection: true,
     requestBody: {},
     requestParams: {
