@@ -23,13 +23,15 @@ var View = Marionette.LayoutView.extend({
       'click .js-all': 'displayAll'
     },
 
-    initialize: function() {
-      window.config = {};
+    initialize: function(options) {
+      window.config = {
+        baseUrl : 'http://' + window.location.hostname + '/',
+        project: options.project
+      };
+
       this.initColl();
       this.initRoutes();
       this.initMenu();
-
-
     },
 
     onBtnLoginClick: function() {
@@ -50,13 +52,32 @@ var View = Marionette.LayoutView.extend({
     },
 
     initColl: function() {
-      window.config.currentProject = 'get.weekData';
-
+      var project = window.config.project;
+      var models;
+      switch(project) {
+          case 'position':
+              models = require('../routes/models/position/**/*.js', {mode: 'list'});
+              window.config.apiUrl = 'position';
+              break;
+          case 'thesaurus':
+              models = require('../routes/models/thesaurus/**/*.js', {mode: 'list'});
+              window.config.apiUrl = 'thesaurus';
+              break;
+          case 'ecoReleveData':
+              models = require('../routes/models/ecoReleveData/**/*.js', {mode: 'list'});
+              window.config.apiUrl = 'erd';
+              break;
+          case 'eCollection':
+              models = require('../routes/models/eCollection/**/*.js', {mode: 'list'});
+              window.config.apiUrl = 'eCollection';
+              break;
+          default:
+              models = require('../routes/models/position/**/*.js', {mode: 'list'});
+              window.config.apiUrl = 'position';
+              break;
+      }
       this.collection = new Backbone.Collection();
-      var models = require('../routes/models/**/*.js', {mode: 'list'});
-      console.log(models);
       for (var i = models.length - 1; i >= 0; i--) {
-        console.log(models[i]);
         this.collection.add(models[i].module.getNewInstance());
       }
 
@@ -90,7 +111,7 @@ var View = Marionette.LayoutView.extend({
 });
 
 module.exports = {
-    getNewInstance: function() {
-        return new View();
+    getNewInstance: function(options) {
+        return new View(options);
     }
 };

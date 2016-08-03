@@ -7,15 +7,15 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'Valide un nom pour la creation (doublon)',
+    title: 'Générateur d\'arbre',
     verb: 'GET',
-    url: '/validateName',
+    url: '/fastInitForCompleteTree',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-      "name":"string",
-      "branchId":"int"
+      'StartNodeID':'int[]',
+      'lng':'string',
     },
     responseHeaders: [
       ''
@@ -32,8 +32,8 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: '',
-        query: '',
+        label: 'Vetos tree',
+        query: '/fastInitForCompleteTree?StartNodeID=167920&lng=fr',
       },
     ]
   },

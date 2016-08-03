@@ -7,15 +7,20 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'Renvoie les langages disponible pour une édition',
-    verb: 'POST',
-    url: '/languageRestrict',
+    title: 'Générateur d\'arbre',
+    verb: 'GET',
+    url: '/getTree',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-      "id":"int",
-      "action":"string nullable"
+      'startNode':'int[]',
+      'language':'string',
+      'deprecated':'boolean',
+      'justLeafs':'boolean',
+      'profMin':'int',
+      'profMax':'int',
+      'notDisplayOutOfMax':'boolean'
     },
     responseHeaders: [
       ''

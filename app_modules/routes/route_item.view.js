@@ -12,7 +12,6 @@ var View = Marionette.LayoutView.extend({
     events: {
         'submit .js-form-send': 'send',
         'click .js-preset': 'preset',
-
     },
 
     modelEvents: {
@@ -42,7 +41,9 @@ var View = Marionette.LayoutView.extend({
         var i = $(e.currentTarget).data('index');
         this.ui.query.val(this.model.get('presets')[i].query);
         this.ui.requestBody.val(JSON.stringify(this.model.get('presets')[i].requestBody, undefined, 4));
-        var url = window.apiBaseURL + this.model.get('presets')[i].query;
+
+        var url = window.config.baseUrl + window.config.apiUrl + this.model.get('presets')[i].query;
+
         var requestBody = this.model.get('presets')[i].requestBody;
         var method = this.model.get('verb');
     },
@@ -53,7 +54,7 @@ var View = Marionette.LayoutView.extend({
         $form.addClass('form-state-loading');
         var query = this.ui.query.val();
         var requestBody = this.ui.requestBody.val();
-        var url = window.apiBaseURL + query;
+        var url = window.config.baseUrl + window.config.apiUrl + query;
 
         var params = {
           url: url,

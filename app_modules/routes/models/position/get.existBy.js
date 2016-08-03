@@ -7,14 +7,16 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'Renvoie l'historique d'un topic',
-    verb: 'POST',
-    url: '/topicHistory',
+    title: 'Booleen de validation d\'existence d\'un topic',
+    verb: 'GET',
+    url: '/existBy',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-      "id":"int"
+      'typeField':'string',
+      'value':'string',
+      'lng':'string'
     },
     responseHeaders: [
       ''

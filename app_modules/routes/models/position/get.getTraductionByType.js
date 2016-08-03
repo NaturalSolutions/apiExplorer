@@ -7,17 +7,17 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'Booleen de validation d'existence d'un topic pour un top concept',
-    verb: 'POST',
-    url: '/existsByWType',
+    title: 'Renvoie la traduction d\'un topic pour un langue donnée',
+    verb: 'GET',
+    url: '/getTraductionByType',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-      "typeField":"string",
-      "value":"string",
-      "typeId":"int",
-      "lng":"string"
+      'parentId':'int',
+      'value':'string',
+      'typeField':'string',
+      'lng':'string'
     },
     responseHeaders: [
       ''

@@ -7,20 +7,17 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'Générateur d\'arbre',
+    title: 'Booleen de validation d\'existence d\'un topic pour un top concept',
     verb: 'GET',
-    url: '/getTree',
+    url: '/existsByWType',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-      "startNode":"int[]",
-      "language":"string",
-      "deprecated":"boolean",
-      "justLeafs":"boolean",
-      "profMin":"int",
-      "profMax":"int",
-      "notDisplayOutOfMax":"boolean"
+      'typeField':'string',
+      'value':'string',
+      'typeId':'int',
+      'lng':'string'
     },
     responseHeaders: [
       ''

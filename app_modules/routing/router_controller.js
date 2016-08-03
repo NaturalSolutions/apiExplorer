@@ -9,9 +9,30 @@ module.exports = Marionette.Object.extend({
     initialize: function(options) {},
 
     home: function() {
-        Main.getInstance().rgMain.show(HomeView.getNewInstance(), {
-            preventDestroy: true
-        });
+        Main.getInstance().rgMain.show(HomeView.getNewInstance());
     },
     
+    thesaurus: function() {
+        Main.getInstance().rgMain.show(HomeView.getNewInstance({
+        	project: 'thesaurus',
+        }));
+    },
+
+    ecoReleveData: function() {
+        Main.getInstance().rgMain.show(HomeView.getNewInstance({
+        	project: 'ecoReleveData',
+        }));
+    },
+
+    position: function() {
+        Main.getInstance().rgMain.show(HomeView.getNewInstance({
+        	project: 'position',
+        }));
+    }, 
+
+    eCollection: function() {
+        Main.getInstance().rgMain.show(HomeView.getNewInstance({
+        	project: 'eCollection',
+        }));
+    },
 });

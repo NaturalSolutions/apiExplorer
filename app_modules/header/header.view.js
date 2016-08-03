@@ -10,11 +10,9 @@ var View = Marionette.LayoutView.extend({
 
     events: {
         'click .btn_back': 'onBackClick',
-        'change #apiBaseURL': 'changeBaseApi'
     },
     // !!! A trigger selector disable an event selector
     triggers: {
-        //'click .btn_back': 'btn:back:click',
         'click .btn_menu': 'btn:menu:click'
     },
 
@@ -25,10 +23,6 @@ var View = Marionette.LayoutView.extend({
         back: {
             icon: 'arrow_back'
         }
-    },
-
-    changeBaseApi: function() {
-        window.apiBaseURL = this.$el.find('#apiBaseURL').val();
     },
 
     serializeData: function() {

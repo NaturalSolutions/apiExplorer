@@ -7,16 +7,16 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'Booleen de validation de drag n drop',
+    title: 'Insert un fichier en base sous forme de blob',
     verb: 'POST',
-    url: '/dropDownConstraint',
+    url: '/?',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-      "movedTopicId":"int",
-      "destTopicId":"int",
-      "order":"string"
+      'form-data':{
+        'file':'stream'
+      }
     },
     responseHeaders: [
       ''
@@ -33,8 +33,11 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: '',
-        query: '',
+        label: 'filter',
+        query: 'test/?test="plouf plouf2"',
+      },{
+        label: 'history',
+        query: '?/',
       },
     ]
   },

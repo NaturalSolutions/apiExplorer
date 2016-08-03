@@ -7,16 +7,15 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'Envoie au serveur une modification de type d\'n\'d',
-    verb: 'POST',
-    url: '/dropEnding',
+    title: 'Valide un nom pour la creation (doublon)',
+    verb: 'GET',
+    url: '/validateName',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-      "movedTopicId":"int",
-      "destTopicId":"int",
-      "order":"string"
+      'name':'string',
+      'branchId':'int'
     },
     responseHeaders: [
       ''

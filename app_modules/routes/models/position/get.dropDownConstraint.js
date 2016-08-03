@@ -7,15 +7,16 @@ var Model = Backbone.Model.extend({
   schema: {
   },
   defaults: {
-    title: 'Générateur d\'arbre',
+    title: 'Booleen de validation de drag n drop',
     verb: 'GET',
-    url: '/fastInitForCompleteTree',
+    url: '/dropDownConstraint',
     description: 'return',
     isCollection: true,
     requestBody: {},
     requestParams: {
-      "StartNodeID":"int[]",
-      "lng":"string",
+      "movedTopicId":"int",
+      "destTopicId":"int",
+      "order":"string"
     },
     responseHeaders: [
       ''
@@ -32,8 +33,8 @@ var Model = Backbone.Model.extend({
     comment: '',
     presets: [
       {
-        label: 'Vetos tree',
-        query: '/fastInitForCompleteTree?StartNodeID=167920&lng=fr',
+        label: '',
+        query: '',
       },
     ]
   },

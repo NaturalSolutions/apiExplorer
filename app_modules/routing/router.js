@@ -4,6 +4,10 @@ var Marionette = require('backbone.marionette');
 
 var Router = Marionette.AppRouter.extend({
     appRoutes: {
+        'position': 'position',
+        'thesaurus': 'thesaurus',
+        'ecoReleveData': 'ecoReleveData',
+        'eCollection': 'eCollection',
         '*route(/:page)': 'home',
     },
 });
